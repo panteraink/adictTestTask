@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel",
-    "build": "parcel index.html --dist-dir build --public-url ./",
-    "view": "parcel index.html"
+    "build": "parcel build index.html --dist-dir build --public-url ./",
+    "view": "parcel index.html --no-cache"
   },
   "author": "",
   "license": "ISC",

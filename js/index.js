@@ -115,7 +115,7 @@ const sliderActivation = () => {
                         //Вешаем слушателей на кнопки в контейнере
                         buttonNext.addEventListener('click', slideNext);
                         buttonPrevious.addEventListener('click', slidePrevious);
-                        setInterval(sliderTimer, 5000);
+                        //setInterval(sliderTimer, 5000);
                     };
                 };
             };
