@@ -10,7 +10,7 @@ const navigationButtonActivation = () => {
     if (navOpenButton) {navOpenButton.addEventListener('click', navOpen);}
 };
 
-//Активайия первого слайда для разрешений ниже 768px
+//Активация первого слайда для разрешений ниже 768px
 const firstSlideOnly = () => {
     const sliders = document.querySelectorAll('.slider_container');
     if (sliders) {
@@ -132,7 +132,7 @@ if (mediaQuery.matches) {
     sliderActivation();
 };
 
-const emailFormsActivation = () => {
+/*const emailFormsActivation = () => {
     const emailForms = document.querySelectorAll('.form_email');
     if (emailForms.length > 0) {
         for (const f of emailForms) {
@@ -164,4 +164,73 @@ const connectFormsActivation = () => {
 };
 
 connectFormsActivation();
-emailFormsActivation();
+emailFormsActivation();*/
+
+document.addEventListener('DOMContentLoaded', () => {
+    const forms = document.querySelectorAll("form")
+
+    forms.forEach(element => {
+        formValidatorActivate(element)
+    });
+
+
+    function formValidatorActivate(form) {
+        form.addEventListener('submit', formSend)
+
+        /*let formData = new FormData(form)
+
+        let imgFromWeb = document.createElement("div")
+            imgFromWeb.className = "popup"
+            imgFromWeb.innerHTML = '<img src="123.png">'*/
+        
+        async function formSend(e) {
+            e.preventDefault();
+            if (formValidate(form)) {
+                /*document.body.appendChild(imgFromWeb)
+                element.classList.add('form_sent_visible')*/
+                alert('Send!')
+                form.lastElementChild.classList.add('form_sent_visible')
+            } else if (!formValidate(form)) {
+                
+            }
+        }
+
+        function formValidate(form) {
+            let error = false
+            form.querySelectorAll('[required]').forEach((input) => {
+                removeErrorFromForm(input)
+                if (input.getAttribute("type") == "email") {
+                    if (emailValidation(input.value)) {
+                        addErrorToForm(input)
+                        error = true
+                    }
+                }
+                /*else if (input.tagName == 'textarea') {
+                    if (input.value === "") {
+                        addErrorToForm(input)
+                        error = true
+                    }
+                }*/
+                else if (input.getAttribute("type") == "text") {
+                    if (input.value === "") {
+                        addErrorToForm(input)
+                        error = true
+                    }
+                }
+            })
+            return !error
+        }
+
+        function emailValidation(string) {
+            return !/^[\w]+@([\w]+\.)+[\w]{2,}$/gi.test(string)
+        }
+        function addErrorToForm(element) {
+            element.parentElement.classList.add('error')
+            //element.classList.add('error')
+        }
+        function removeErrorFromForm(element) {
+            element.parentElement.classList.remove('error')
+            //element.classList.remove('error')
+        }
+    }
+})

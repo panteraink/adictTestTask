@@ -6,13 +6,15 @@
         padding: 12px 0 12.47px 20px;
     }
     .input-text-dark {
-        width: min(36.33vw, 279px);
+        width: 100%;
+        max-width: 170px;
     }
     .button-filled, .button-hollow {
         border-radius: 40px;
-        padding: 12px 26px;
+        padding: .8em 2em;
         width: 100%;
         max-width: 108px;
+        min-width: inherit;
     }
     .connect {
         max-width: 175px;
@@ -22,19 +24,23 @@
         min-width: 320px;
         padding: 27px 0 0;
         & > * {
-            margin: 0 21px 0;
+            margin: 0 20px 0;
         }
     }
     .navigation {
+        margin: 0 14px 0;
+        width: 100%;
         margin-bottom: 57px;
-        padding: 0;
+        padding: 0 40px 0 0;
         z-index: 50;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
     }
-    
+    .navigation__logo {
+        padding-left: 0;
+    }
     .navigation__buttons {
         position: absolute;
         top: 50px;
@@ -71,9 +77,11 @@
         cursor: pointer;
     }
     .group-1 {
+        margin: 0 18px;
         margin-bottom: 66px;
     }
-    .slider {
+    .slider-container {
+        padding-bottom: 0;
     }
     .slide {
         display: none;
@@ -104,6 +112,7 @@
     }
     .slide__image {
         margin: 0 auto;
+        max-width: 100%;
         img {
             width: 100%;
             height: 100%;
@@ -134,7 +143,7 @@
     .group-2__image {
     }
     .group-how-it-works {
-        margin: 0 auto min(14.32vw, 110px);
+        margin: 0 16px min(14.32vw, 110px);
     }
     .group-how-it-works__header {
         margin: 0 auto 40px;
@@ -158,8 +167,8 @@
     }
     .group-automate {
         display: block;
-        margin: 0 auto 141px;
-        padding: 60px 21px;
+        margin: 0 0 141px;
+        padding: 60px 20px;
     }
     .group-automate__header {
         margin: 0 auto 12px;
@@ -173,7 +182,6 @@
         text-align: center;
     }
     .group-automate__form {
-        display: block;
         width: 100%;
         margin: 0 auto;
         input {
@@ -186,7 +194,7 @@
     }
     .group-banks {
         display: block;
-        margin-bottom: 110px;
+        margin: 0 14px 110px;
     }
     .group-banks__header {
         margin-bottom: 40px;
@@ -203,13 +211,13 @@
         padding: 20px 16px;
     }
     .group-banks__banks__header {
-        margin-bottom: 28px;
+        margin-bottom: 0;
     }
     .group-banks__banks__icons {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 25px;
-        padding-bottom: 25px;
+        grid-template: 50px 50px / 1fr 1fr;
+        column-gap: 24px;
+        padding: 0;
     }
     .group-banks__banks__icon {
         img {
@@ -219,7 +227,7 @@
         }
     }
     .group-banks__banks__line {
-        margin-bottom: 21px;
+        margin-bottom: 10px;
     }
     .group-banks__banks__upload-from-1c {
         margin: 0;
@@ -239,13 +247,18 @@
         margin-bottom: 28px;
     }
     .group-banks__integrations__icons {
-        gap: 32px;
+        display: block;
+        //gap: 32px;
+        :last-child{
+            margin-bottom: 0;
+        }
     }
     .group-banks__integrations__item {
+        margin-bottom: 32px;
         gap: min(3.9vw, 30px);
     }
     .group-banks__integrations__item__image {
-        flex: 1 0 min(7.81vw, 60px);
+        //flex: 1 0 min(7.81vw, 60px);
         text-align: center;
         img {
             width: 100%;
@@ -257,7 +270,7 @@
         white-space: nowrap;
     }
     .group-for-who {
-        margin-bottom: 135px;
+        margin-bottom: 110px;
     }
     .group-for-who__header {
         text-align: center;
@@ -291,23 +304,31 @@
     .group-for-who__panel__text_info {
     }
     .group-cases {
-        margin-bottom: 113px;
+        margin: 0 10px 80px;
     }
     .group-cases__header {
         margin: 0 auto 40px;
         text-align: center;
     }
     .group-cases__panels {
+        height: 223px;
         margin-bottom: 30px;
     }
     .group-cases__panels__inner {
         height: 223px;
     }
     .group-cases__panel {
+        flex: 0 0 220px;
+        padding: 25px 0 18px 18px;
     }
     .group-cases__panel__icons {
+        gap: 4px;
+        img {
+            height: 24px;
+        }
     }
     .group-cases__panel__header {
+        margin-bottom: 20px;
     }
     .group-cases__panel__read {
     }
@@ -329,14 +350,15 @@
     }
     .group-tariffs {
         display: block;
-        margin-bottom: 97px;
+        margin: 0 10px 95px;
     }
     .group-tariffs__header {
         text-align: center;
         margin: 0 auto 40px;
     }
     .group-tariffs__form {
-        margin: 0 auto;
+        justify-content: flex-start;
+        width: 100%;
     }
     .group-tariffs__text {
         margin: 0 auto 40px;
@@ -364,7 +386,7 @@
         padding: 30px 0 30px 23px;
     }
     .group-soon__panel__header {
-        margin-bottom: 16px;
+        margin-bottom: 10px;
         padding: 0;
         text-align: center;
         flex: 1 1 auto;
@@ -376,6 +398,7 @@
         top: 14px;
     }
     .group-soon__panel__text {
+        padding: 0;
     }
     .group-soon__panel__text__logos {
         display: flex;
@@ -389,7 +412,7 @@
     }
     .group-security {
         display: block;
-        margin-bottom: 33px;
+        margin: 0 12px 33px;
     }
     .group-security__image {
         width: 200px;
@@ -428,7 +451,7 @@
         margin: 0 auto 40px;
         gap: 15px;
         .input-textarea-light {
-            padding: 10px 0 10px 20px;
+            padding: .6em 1.4em;
             resize: none;
             height: 100%;
         }
