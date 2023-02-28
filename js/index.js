@@ -190,9 +190,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 element.classList.add('form_sent_visible')*/
                 alert('Send!')
                 form.lastElementChild.classList.add('form_sent_visible')
-            } else if (!formValidate(form)) {
+            }/* else if (!formValidate(form)) {
                 
-            }
+            }*/
         }
 
         function formValidate(form) {
